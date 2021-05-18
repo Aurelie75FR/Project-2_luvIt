@@ -1,3 +1,7 @@
+<body class="body">
+  
+
+
 <form
   method="post"
   action="/dashboard/add-collection"
@@ -9,21 +13,23 @@
   <a href="/dashboard">Annuler</a><span>et revenir au dashboard</span>
 
   <div class="step one shadow">
+    <p>Your collection</p>
     <label for="name" class="label">Add a name to your collection</label>
     <input
       class="input"
       type="text"
       id="name"
       name="name"
-      placeholder="Name your collection"
+      placeholder="ex: Our next trip"
     />
-    <button type="button">Next</button>
+    <button type="button"></button>
   </div>
 
  <div class="step two shadow">
+   <p>Your collection</p>
   <label for="image" class="label">
     Choose a cover picture
-    <i class="icon fas fa-cloud-upload-alt fa-1x"></i>
+    
   </label>
   <input
     class="input"
@@ -32,21 +38,24 @@
     name="image"
     accept="image/png, image/jpeg"
   />
-  <button type="button">Next</button>
+  <button type="button"></button>
 </div>
 
 <div class="step three shadow">
+  <p>Your collection</p>
   <label for="description" class="label">Add a simple description</label>
   <textarea
     type="text"
     class="input"
     id="description"
     name="description"
-    placeholder="What is your collection about ?"
+    placeholder="ex: Articles, videos .. for our next trip "
   ></textarea>
   <input type="submit" value="Done">
 </div>
 
   
 </form>
+
+</body>
 

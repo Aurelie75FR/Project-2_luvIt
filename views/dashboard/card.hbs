@@ -1,6 +1,9 @@
-<h1>card</h1>
+<body class="body">
+<h1 class="pagetitle pgcard">Cards</h1>
 
 <a href="/dashboard/add-card">Add a new card</a>
+<a href="card/add-card">Add a new card</a>
+<a class="white" href="javascript:history.back()"> < Collections </a>
 
 {{#each card}}
 <div>
@@ -14,3 +17,6 @@
 <a href="/collection/update-card/{{this._id}}">Update card</a>
 <a href="/collection/delete/{{this._id}}">Delete card</a>
 {{/each}}
+
+</body>
+

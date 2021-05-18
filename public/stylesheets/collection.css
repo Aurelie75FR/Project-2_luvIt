@@ -3,30 +3,42 @@
 .collection-maincontainer {
   width: 80vw;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  padding: 20px;
+  padding: 50px 20px 100px 20px;
   margin: 0 auto;
 }
 
 /* collection + delete & edit */
 
 .collectioncard {
-  width: 329px;
-  height: 415px;
+  width: 330px;
+}
+
+.suppmodif{
+display: flex;
+justify-content: flex-end;
+margin-bottom: 10px;
+}
+
+.transp{
+ visibility: hidden;}
+
+.suppmodif img{
+ width: 18px;
 }
 
 /* div contour violet avec image, description .. */
 
 .parent{
-position: relative;
 background-color: #04001ca4;
 }
 
-.purpleborder img {
+.imgdecale {
   position: relative;
   object-fit: cover;
-  width: 300px;
+  right: 40px;
+  width: 310px;
   height: 180px;
   margin-top: 10px;
   border-radius: 10px;
@@ -34,7 +46,21 @@ background-color: #04001ca4;
 
 /* add a collection */
 
-.addcollection.purpleborder div {
+
+.purpleborder div {
   background-color: #6a52f0;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.addcollection.purpleborder img {
+  width: 20px;
+  height: 20px;  
+} 
+
+.purpleborder.parent.collectioncard {
+  width: 290px;
 }

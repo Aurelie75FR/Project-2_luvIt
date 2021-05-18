@@ -1,2 +1,26 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<body class="bodysee">
+    
+
+
+<div class="join flip">
+
+  <div class="joinus signin">
+    <p>HELLO, please sign in</p>
+  </div>
+
+  <div class="joinus signup">
+    <p>HELLO, please sign up</p>
+  </div>
+
+</div>
+
+<script>
+
+let card = document.querySelector(".join");
+
+card.addEventListener("click", function() {
+card.classList.toggle("flip");
+});
+</script>
+
+</body>
