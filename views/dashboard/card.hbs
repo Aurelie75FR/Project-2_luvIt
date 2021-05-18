@@ -2,10 +2,10 @@
 <h1 class="pagetitle pgcard">Cards</h1>
 
 <a href="/dashboard/add-card">Add a new card</a>
-<a href="card/add-card">Add a new card</a>
+{{!-- <a href="card/add-card">Add a new card</a> --}}
 <a class="white" href="javascript:history.back()"> < Collections </a>
 
-{{#each card}}
+{{#each cardInCollection}}
 <div>
     <h2>Name : {{this.name}}</h2>
     <p>Description : {{this.description}}</p>
