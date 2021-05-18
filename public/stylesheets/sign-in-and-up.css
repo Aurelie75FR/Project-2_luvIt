@@ -9,6 +9,8 @@
 }
 
 .joinus {
+    width: 800px;
+  height: 500px;
   position: absolute;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
