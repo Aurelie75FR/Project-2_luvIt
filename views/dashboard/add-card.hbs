@@ -1,0 +1,21 @@
+<h1>Add card</h1>
+
+<form method="post" action="/collection/card/add-card" class="form" enctype="multipart/form-data">
+    <h1 class="title">Create a new card</h1>
+    <label for="name" class="label">name</label>
+    <input class="input" type="text" id="name" name="name" placeholder="Name your card">
+
+    <label for="image" class="label">
+        choose a picture
+        <i class="icon fas fa-cloud-upload-alt fa-1x"></i>
+    </label>
+    <input class="input" type="file" id="image" name="image" accept="image/png, image/jpeg">
+
+    <label for="description" class="label">description</label>
+    <textarea type="text" class="input" id="description" name="description" placeholder="What is your card about ?"></textarea>
+
+    <label for="links">Enter your links here :</label>
+    <input type="url" name="links" id="links" placeholder="https://example.com" pattern="https://.*" size="30">
+
+    <button class="btn">create</button>
+</form>

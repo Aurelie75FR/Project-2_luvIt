@@ -1,0 +1,18 @@
+<h1>update collection</h1>
+
+<form method="post" action="/collection/update/{{collection._id}}" class="form" enctype="multipart/form-data">
+    <h1 class="title">Modify your collection details</h1>
+    <label for="name" class="label">name</label>
+    <input class="input" type="text" id="name" name="name" value="{{collection.name}}">
+
+    <label for="image" class="label">
+        choose a picture
+        <i class="icon fas fa-cloud-upload-alt fa-1x"></i>
+    </label>
+    <input class="input" type="file" id="image" name="image" accept="image/png, image/jpeg">
+
+    <label for="description" class="label">description</label>
+    <textarea type="text" class="input" id="description" name="description">{{collection.description}}</textarea>
+
+    <button class="btn">create</button>
+</form>

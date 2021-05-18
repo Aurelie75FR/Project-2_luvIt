@@ -1,0 +1,19 @@
+
+.step{
+    background-color: #04001C;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input{
+    color: white;
+    border: 1px solid #6a52f0;
+  border-radius: 15px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0);
+}

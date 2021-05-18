@@ -1,0 +1,45 @@
+.pagetitle {
+  z-index: -1;
+  position: fixed;
+  left: -260px;
+  top: 300px;
+
+  color: rgba(255, 235, 205, 0);
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 40px;
+
+  -webkit-text-stroke: 1.5px #6a52f0;
+  transform: rotate(90deg);
+}
+
+.pgcard{
+  left: -125px
+}
+
+.purpleborder {
+  border: 1px solid #6a52f0;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.whitetext {
+  color: white;
+  font-size: 12px;
+}
+
+.purplefat {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
+  color: #6a52f0;
+}
+
+p {
+  width: fit-content;
+  margin: 0;
+}
+
+.shadow {
+  box-shadow: 0px 4px 30px rgba(106, 82, 240, 0.22);
+}

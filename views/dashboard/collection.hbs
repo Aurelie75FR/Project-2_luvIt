@@ -1,0 +1,39 @@
+<body class="body">
+
+  <h1 class="pagetitle">Collections</h1>
+
+  <div class="collection-maincontainer">
+
+    {{#each collection}}
+      <div class="collectioncard">
+        <a href="collection/update-collection/{{this._id}}" class="link"><img
+            class="icon"
+            src="images/edit.svg"
+            alt=""
+          /></a>
+        <a href="collection/delete/{{this._id}}" class="link"><img
+            class="icon"
+            src="images/trash.svg"
+            alt=""
+          /></a>
+
+        <div class="purpleborder parent">
+            <a href="collection/{{this._id}}">
+          <img src="{{this.image}}" alt=""/></a>
+          <p class="purplefat">{{this.name}}</p>
+          <p class="whitetext">{{this.description}}</p>
+        </div>
+
+      </div>
+    {{/each}}
+
+    <div class="addcollection purpleborder">
+      <div><a href="/collection/add-collection">
+        <img src="images/plus.svg" alt="" />
+      </a></div>
+
+    </div>
+
+  </div>
+
+</body>

@@ -1,0 +1,50 @@
+<form
+  method="post"
+  action="/collection/add-collection"
+  class="form"
+  enctype="multipart/form-data"
+>
+  <h1 class="title">Create a new collection</h1>
+
+  <div class="step one shadow">
+    <label for="name" class="label">Add a name to your collection</label>
+    <input
+      class="input"
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Name your collection"
+    />
+    <button type="button">Next</button>
+  </div>
+
+ <div class="step two shadow">
+  <label for="image" class="label">
+    Choose a cover picture
+    <i class="icon fas fa-cloud-upload-alt fa-1x"></i>
+  </label>
+  <input
+    class="input"
+    type="file"
+    id="image"
+    name="image"
+    accept="image/png, image/jpeg"
+  />
+  <button type="button">Next</button>
+</div>
+
+<div class="step three shadow">
+  <label for="description" class="label">Add a simple description</label>
+  <textarea
+    type="text"
+    class="input"
+    id="description"
+    name="description"
+    placeholder="What is your collection about ?"
+  ></textarea>
+  <input type="submit" value="Done">
+</div>
+
+  
+</form>
+
