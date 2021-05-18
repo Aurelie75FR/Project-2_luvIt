@@ -6,24 +6,13 @@
 
     {{#each collection}}
       <div class="collectioncard">
-        <a href="dashboard/update-collection/{{this._id}}" class="link"><img
-            class="icon"
-            src="images/edit.svg"
-            alt=""
-          /></a>
-        <a href="dashboard/delete/{{this._id}}" class="link"><img
-            class="icon"
-            src="images/trash.svg"
-            alt=""
-          /></a>
-
         <div class="suppmodif">
-          <a href="collection/update-collection/{{this._id}}" class="link"><img
+          <a href="dashboard/update-collection/{{this._id}}" class="link"><img
               class="icon"
               src="images/edit.svg"
               alt=""
             /></a>
-          <a href="collection/delete/{{this._id}}" class="link"><img
+          <a href="dashboard/delete/{{this._id}}" class="link"><img
               class="icon"
               src="images/trash.svg"
               alt=""
@@ -56,7 +45,7 @@
 
     <div class="purpleborder parent collectioncard">
       <div class="imgdecale">
-        <a href="/collection/add-collection"><img  src="images/plus.svg" alt="" /></a>
+        <a href="/dashboard/add-collection"><img  src="images/plus.svg" alt="" /></a>
         </div>
     </div>
 
