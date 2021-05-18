@@ -25,8 +25,8 @@ stepOne.style.display = null
 
 /*---------*/
 
-let card = document.querySelector(".join");
+// let card = document.querySelector(".join");
 
-card.addEventListener("click", function() {
-card.classList.toggle("flip");
-});
+// card.addEventListener("click", function() {
+// card.classList.toggle("flip");
+// });

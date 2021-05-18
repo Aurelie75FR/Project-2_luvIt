@@ -6,10 +6,11 @@
   transform-style: preserve-3d;
   border-radius: 40px;
   transition: 1s;
+  margin: 0 auto;
 }
 
 .joinus {
-    width: 800px;
+  width: 800px;
   height: 500px;
   position: absolute;
   backface-visibility: hidden;
@@ -22,7 +23,7 @@
 }
 
 .signup {
-  background-color: blueviolet;
+  background-color: #04001C;
   transform: rotateY(180deg);
 }
 
@@ -30,5 +31,32 @@
   transform: rotateY(180deg);
 }
 
-/* ----------- no nav bar -------------- */
+.button {
+  background-color: white;
+  color: #6a52f0;
+  border: none;
+  border-radius: 30px;
+  width: fit-content;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
 
+.blanc{
+color: white;
+background-color: #6a52f0;
+width: 350px;
+border-radius: 40px 0px 40px 40px;
+}
+
+.violet{
+  color: #6a52f0;
+  width: auto;
+  }
+
+.joinus.signup{
+  display: flex;
+
+}
+/* ----------- no nav bar -------------- */
