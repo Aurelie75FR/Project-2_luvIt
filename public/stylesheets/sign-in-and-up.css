@@ -1,0 +1,35 @@
+.join {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  border-radius: 40px;
+  transition: 1s;
+}
+
+.joinus {
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 40px;
+}
+
+.signin {
+  background-color: black;
+}
+
+.signup {
+  background-color: blueviolet;
+  transform: rotateY(180deg);
+}
+
+.join.flip {
+  transform: rotateY(180deg);
+}
+
+/* ----------- no nav bar -------------- */
+
+.header-main{
+    display: none;
+}

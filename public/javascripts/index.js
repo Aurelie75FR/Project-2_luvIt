@@ -1,4 +1,3 @@
-console.log("hello guuuys")
 const stepOne = document.querySelector(".one");
 const stepTwo = document.querySelector(".two");
 const stepThree = document.querySelector(".three");
@@ -23,3 +22,5 @@ nextTwo.addEventListener("click", evt => {
 })
 
 stepOne.style.display = null
+
+// animation log in ___________________________ ****
