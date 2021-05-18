@@ -3,35 +3,89 @@
   <div class="join flip">
 
     <div class="joinus signin">
-      <div>
-        <p>Welcome Back</p>
-        <p>Glad to see you again friend</p>
-
+      <div class="sm">
+        <p class="fat closer">Sign in <br /> to Luvit </p>
+        <form method="post" action="/auth/signin" class="formsign">
+          <label for="email"></label>
+          <input
+            class="inputone cursor"
+            type="email"
+            name="email"
+            placeholder="aurélieferry@email.com"
+          />
+          <label for="password"></label>
+          <input
+            class="inputone cursor"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="imtheboss"
+          />
+          <button class="button purple">SIGN IN</button>
+        </form>
       </div>
 
-      <div>
-
+      <div class="reverse">
+        <p class="fat closer">Hello <br />there !</p>
+        <p class="small">Glad to finally<br />meet you</p>
+        <div class="button">SIGN UP</div>
       </div>
 
     </div>
 
     <div class="joinus signup">
       <div class="blanc">
-        <p>Welcome Back</p>
-        <p>Glad to see you again friend</p>
-        <button class="button">SIGN IN</button>
+        <p class="fat closer">Welcome <br /> Back</p>
+        <p class="small">Glad to see you <br /> again friend !</p>
+        <div class="button click">SIGN IN</div>
       </div>
 
       <div class="violet">
-        <p>Create an account</p>
+        <p class="fat">Create an <br /> account</p>
+        <form method="post" action="/auth/signup" class="formsign">
+          {{!-- {{> flashMessage }} --}}
+
+          <label for="firstName"></label>
+          <input
+            class="inputone cursor"
+            type="text"
+            name="firstName"
+            placeholder="Aurélie"
+          />
+          <label for="lastname"></label>
+          <input
+            class="inputone cursor"
+            type="text"
+            name="lastname"
+            placeholder="Ferry"
+          />
+          <label for="email"></label>
+          <input
+            class="inputone cursor"
+            type="email"
+            name="email"
+            placeholder="aurélieferry@email.com"
+          />
+          <label for="password"></label>
+          <input
+            class="inputone cursor"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="imtheboss"
+          />
+          <button class="button purple">SIGN UP</button>
+        </form>
+
       </div>
     </div>
 
   </div>
 
   <script>
-    let card = document.querySelector(".join"); card.addEventListener("click",
-    function() { card.classList.toggle("flip"); });
+    let card = document.querySelector(".button.click"); let join =
+    document.querySelector(".join"); card.addEventListener("click", function() {
+    join.classList.toggle("flip"); });
   </script>
 
 </body>

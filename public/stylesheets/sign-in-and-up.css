@@ -1,35 +1,95 @@
+/* fat div with recto/verso of userlog */
+
 .join {
   position: relative;
   width: 800px;
-  height: 500px;
-  cursor: pointer;
+  height: 550px;
   transform-style: preserve-3d;
   border-radius: 40px;
   transition: 1s;
+  display: flex;
+  align-content: center;
+  justify-content: center;
   margin: 0 auto;
+
+
 }
+
+/* rotate kinda */
 
 .joinus {
   width: 800px;
-  height: 500px;
+  height: 550px;
   position: absolute;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 40px;
 }
 
-.signin {
-  background-color: black;
-}
-
-.signup {
-  background-color: #04001C;
-  transform: rotateY(180deg);
-}
+/* event flip */
 
 .join.flip {
   transform: rotateY(180deg);
 }
+
+
+/***********************************************************************************************/
+
+
+
+/* --------------------| SIGN IN |---------| START |--------------------- */
+
+.signin {
+  background-color: #04001c;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.reverse{
+  color: white;
+  background-color: #6a52f0;
+  width: 355px;
+  height: 100%;
+  border-radius: 0px 40px 40px 40px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.sm{
+  color: #6a52f0;
+  height: 100%;
+    width: 57%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+
+/* --------------------| SIGN IN |---------| END |--------------------- */
+
+
+
+/***********************************************************************************************/
+
+
+
+/* --------------------| SIGN UP |---------| START |--------------------- */
+
+.joinus.signup {
+  display: flex;
+}
+
+.signup {
+  background-color: #04001c;
+  transform: rotateY(180deg);
+}
+
+/*\$$$---- button -----$$$\*/
 
 .button {
   background-color: white;
@@ -37,26 +97,90 @@
   border: none;
   border-radius: 30px;
   width: fit-content;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 15px 80px 15px 80px;
+  cursor: pointer;
 }
 
-.blanc{
-color: white;
-background-color: #6a52f0;
-width: 350px;
-border-radius: 40px 0px 40px 40px;
+.purple {
+  background-color: #6a52f0;
+  color: white;
+  margin-top: 40px;
 }
 
-.violet{
-  color: #6a52f0;
-  width: auto;
-  }
+/*\$$$---- title -----$$$\*/
 
-.joinus.signup{
+.fat {
+  cursor: default;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+
+.closer {
+  margin-bottom: 10px;
+}
+
+/* ----------- SIGN IN / flip to process -------- */
+
+.blanc {
+  color: white;
+  background-color: #6a52f0;
+  width: 600px;
+  border-radius: 40px 0px 40px 40px;
   display: flex;
-
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
-/* ----------- no nav bar -------------- */
+
+.small{
+  font-size: 18px;
+  font-weight: 200;
+line-height: 22px ;
+margin-bottom: 210px;
+}
+
+/* ----------- SIGN UP / process -------------- */
+
+.violet {
+  color: #6a52f0;
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+
+.inputone {
+  color: #04001c;
+  border: 1px solid #6a52f0;
+  border-radius: 30px;
+  width: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 100px;
+  margin-top: 15px;
+  background-color: white;
+}
+
+.cursor {
+  cursor: text;
+}
+
+.formsign {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+
+/* --------------------| SIGN UP |---------| END |--------------------- */
