@@ -1,6 +1,6 @@
 <h1>card</h1>
 
-<a href="card/add-card">Add a new card</a>
+<a href="/dashboard/add-card">Add a new card</a>
 
 {{#each card}}
 <div>
@@ -11,6 +11,6 @@
     <a href="{{this.links}}">{{this.links}}</a>
 
 </div>
-<a href="/collection/card/update-card/{{this._id}}">Update card</a>
-<a href="/collection/card/delete/{{this._id}}">Delete card</a>
+<a href="/collection/update-card/{{this._id}}">Update card</a>
+<a href="/collection/delete/{{this._id}}">Delete card</a>
 {{/each}}
