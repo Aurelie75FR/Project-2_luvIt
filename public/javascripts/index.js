@@ -23,4 +23,10 @@ nextTwo.addEventListener("click", evt => {
 
 stepOne.style.display = null
 
-// animation log in ___________________________ ****
+/*---------*/
+
+let card = document.querySelector(".join");
+
+card.addEventListener("click", function() {
+card.classList.toggle("flip");
+});
