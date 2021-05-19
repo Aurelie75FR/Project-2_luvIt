@@ -6,9 +6,12 @@ margin-right: 80px;
 margin-top: 90px;
 margin-bottom: 60px;
 min-height: 50vh;
-display: flex;
-justify-content: flex-start;
-
+/* display: flex;
+justify-content: flex-start; */
+display: grid;
+  grid-template-columns: 380px 380px 380px;
+  grid-auto-flow: column;
+  grid-auto-flow: row;
 }
 
 
@@ -30,7 +33,19 @@ justify-content: flex-start;
   }
 
 /* liens */
-
 .lien{
 font-size: 12px;
+border: solid 1px purple;
+width: 100px;
 }
+
+
+.imgdecalage {
+    position: relative;
+    object-fit: cover;
+    right: 40px;
+    width: 280px;
+    height: 160px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }

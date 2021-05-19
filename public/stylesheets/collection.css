@@ -39,7 +39,7 @@ margin-bottom: 10px;
 
 .parent{
 background-color: #04001ca4;
-height: 280px;
+min-height: 280px;
 }
 
 .imgdecale {

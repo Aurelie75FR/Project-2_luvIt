@@ -1,9 +1,13 @@
 <body class="body relative">
 <h1 class="pagetitle pgcard">Cards</h1>
 
-<div class="purpleborder size collection-maincontainer">
+<div class="purpleborder size ">
   <p class="sticky">{{collection.name}}</p>
-  {{!-- <a class="whitetext" href="javascript:history.back()"> </a> --}}
+
+  <div class="canceldiv">
+  <a href="javascript:history.back()"> <img src="/images/close.svg" alt="close"></a>
+</div>
+  
 
   {{#each collection.cards}}
    <div class="collectioncard">
@@ -24,16 +28,43 @@
 <div class="purpleborder parent">
 
   <a href="dashboard/collection/{{this._id}}">
-  <img class="imgdecale" src="{{this.image}}" alt=""/></a>
+  <img class="imgdecalage" src="{{this.image}}" alt=""/></a>
   <p class="purplefat">{{this.name}}</p>
   <p class="whitetext">{{this.description}}</p>
+  
+  <div>
   <a class="lien" href="{{this.links}}">{{this.links}}</a>
+  
+</div>
 
 </div>
       
     </div>
 {{/each}}
+
+<div class="collectioncard">
+
+<div class="suppmodif transp">
+          <a href="collection/update-collection/{{this._id}}" class="link"><img
+              class="icon "
+              src="images/edit.svg"
+              alt=""
+            /></a>
+          <a href="collection/delete/{{this._id}}" class="link"><img
+              class="icon "
+              src="images/trash.svg"
+              alt=""
+            /></a>
+        </div>
+
+    <div class="purpleborder parent collectioncard">
+      <div class="imgdecale violet">
+        <a href="/dashboard/collection/{{collection.id}}/add-card"><img  src="/images/plus.svg" alt=""/></a>
+        </div>
+    </div>
+
   </div>
-</div>
+
+  </div>
 
 </body>
