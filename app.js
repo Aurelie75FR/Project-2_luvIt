@@ -27,20 +27,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    saveUninitialized: true,
-    resave: true
-  })
-);
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     saveUninitialized: true,
+//     resave: true
+//   })
+// );
 
 app.use(flash());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/", dashboardRouter);
-//app.use("/", authRouter);
+app.use("/", authRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
