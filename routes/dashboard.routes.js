@@ -31,6 +31,7 @@ router.post(
     const newCollection = { ...req.body };
     if (!req.file) newCollection.image = undefined;
     else newCollection.image = req.file.path;
+    newCollection.user_id = req.session.currentUser.id
 
     CollectionModel.create(newCollection)
       .then(() => res.redirect("/dashboard"))
@@ -85,9 +86,9 @@ router.get("/dashboard/collection/:id", async (req, res, next) => {
 // CREATE (GET) a new card
 router.get("/dashboard/add-card", async (req, res, next) => {
   try{
-    const collection = await CollectionModel.find()
-    const card = await CardModel.find()
-    res.render('dashboard/add-card', {card , collection})
+    const userCollections = await CollectionModel.find({user_id: req.session.currentUser.id})
+
+    res.render('dashboard/add-card', {userCollections})
 
   }catch(err){
     next(err)
@@ -103,7 +104,10 @@ router.post("/dashboard", uploader.single("image"), (req, res, next) => {
     else newCard.image = req.file.path;
 
     CardModel.create(newCard)
-      .then(() => res.redirect("./dashboard"))
+      .then(() => {
+        CollectionModel.findByIdAndUpdate(newCard.collection.id, {cards: [...cards, newCard]})
+        res.redirect("./dashboard")
+      })
       .catch(next);
   }
 );
