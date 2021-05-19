@@ -1,18 +1,29 @@
-<h1>update collection</h1>
-
+<body class="body">
+    
 <form method="post" action="/dashboard/{{collection._id}}" class="form" enctype="multipart/form-data">
-    <h1 class="title">Modify your collection details</h1>
-    <label for="name" class="label">name</label>
-    <input class="input" type="text" id="name" name="name" value="{{collection.name}}">
 
-    <label for="image" class="label">
-        choose a picture
-        <i class="icon fas fa-cloud-upload-alt fa-1x"></i>
+<div class="step shadow ">   
+
+<div class="canceldiv">
+  <a href="/dashboard"> <img src="/images/close.svg" alt="close"> </a>
+</div>
+
+    <p class="title">Modify your collection </p>
+    <label for="name" class="label closer">Name</label>
+    <input class="input smallerinput" type="text" id="name" name="name" value="{{collection.name}}">
+
+    <label for="image" class="label closer">
+        Choose a picture
     </label>
-    <input class="input" type="file" id="image" name="image" accept="image/png, image/jpeg">
+    <input class="input smallerinput spe" type="file" id="image" name="image" accept="image/png, image/jpeg">
 
-    <label for="description" class="label">description</label>
-    <textarea type="text" class="input" id="description" name="description">{{collection.description}}</textarea>
+    <label for="description" class="label closer">Description</label>
+    <textarea maxlength="50" type="text" class="input smallerradius field smallerinput" id="description" name="description">{{collection.description}}</textarea>
 
-    <button class="btn">create</button>
+    <input type="submit" value="Done" class="done button">
+    </div> 
 </form>
+
+
+
+</body>

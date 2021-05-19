@@ -46,6 +46,13 @@
   border-radius: 15px;
 }
 
+/*-> used in UPDATE-COLLECTION <-*/
+
+.smallerinput{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 /* -------- Formulaire centré en colonne ----------- */
 
 .form {
@@ -60,6 +67,13 @@
   color: #6a52f0;
   margin-bottom: 40px;
   font-size: 15px;
+}
+
+/*-> used in UPDATE-COLLECTION <-*/
+
+.closer{
+  margin-bottom: 8px;
+  margin-top: 20px;
 }
 
 /* ---------- cancel --------------------- */
