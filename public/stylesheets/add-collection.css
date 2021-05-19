@@ -1,3 +1,4 @@
+/* -------- Encards des différentes étapes ----------- */
 .step{
   background-color: #04001C;
   border-radius: 20px;
@@ -7,18 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.input{
-  color: white;
-  border: 1px solid #6a52f0;
-border-radius: 30px;
-width: fit-content;
-padding-top: 20px;
-padding-bottom: 20px;
-padding-left: 40px;
-padding-right: 40px;
-background-color: rgba(255, 255, 255, 0);
 }
 
 .step p{
@@ -36,6 +25,22 @@ border: none;
 margin-top: 40px;
 }
 
+/* -------- Zone infos à remplir ----------- */
+
+.input{
+  color: white;
+  border: 1px solid #6a52f0;
+border-radius: 30px;
+width: fit-content;
+padding-top: 20px;
+padding-bottom: 20px;
+padding-left: 40px;
+padding-right: 40px;
+background-color: rgba(255, 255, 255, 0);
+}
+
+/* -------- Formulaire centré en colonne ----------- */
+
 .form{
 display: flex;
 justify-content: center;
@@ -43,6 +48,7 @@ align-items: center;
 min-height: 80vh;
 }
 
+/* ----- text ex Add your collection name ------ */
 .label{
 color: #6a52f0;
 margin-bottom: 40px;

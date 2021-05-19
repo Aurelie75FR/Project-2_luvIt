@@ -11,7 +11,7 @@ var hbs = require('hbs')
 var indexRouter = require('./routes/index.routes');
 var usersRouter = require('./routes/users.routes');
 var dashboardRouter = require('./routes/dashboard.routes')
-var authRouter = require('./routes/auth.routes')
+// var authRouter = require('./routes/auth.routes')
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', dashboardRouter);
-app.use('/index', authRouter)
+// app.use('/index', authRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
