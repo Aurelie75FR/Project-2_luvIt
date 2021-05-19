@@ -78,9 +78,6 @@ router.get("/dashboard/collection/:id", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  // CardModel.find()
-  //   .then((result) => res.render("dashboard/card", { card: result }))
-  //   .catch(next);
 });
 
 // CREATE (GET) a new card
@@ -93,8 +90,7 @@ router.get("/dashboard/add-card", async (req, res, next) => {
   }catch(err){
     next(err)
   }
-  
-  // res.render("dashboard/add-card");
+
 });
 
 // CREATE (POST) a new card
