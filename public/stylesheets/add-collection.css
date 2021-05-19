@@ -1,56 +1,114 @@
 /* -------- Encards des différentes étapes ----------- */
-.step{
-  background-color: #04001C;
+.step {
+ position: relative;
+  background-color: #04001c;
   border-radius: 20px;
   width: fit-content;
-  padding: 80px;
+  padding: 90px 80px;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.step p{
-font-weight: bold;
-font-size: 25px;
+.step p {
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .step button {
-background-image: url("./../images/done.svg");
-background-size: contain;
-width: 40px;
-height: 40px;
-border-radius: 20px;
-border: none;
-margin-top: 40px;
+  background-image: url("./../images/done.svg");
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 40px;
+  cursor: pointer;
 }
 
 /* -------- Zone infos à remplir ----------- */
 
-.input{
+.input {
+  
   color: white;
   border: 1px solid #6a52f0;
-border-radius: 30px;
-width: fit-content;
-padding-top: 20px;
-padding-bottom: 20px;
-padding-left: 40px;
-padding-right: 40px;
-background-color: rgba(255, 255, 255, 0);
+  border-radius: 30px;
+  width: fit-content;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.smallerradius{
+  border-radius: 15px;
 }
 
 /* -------- Formulaire centré en colonne ----------- */
 
-.form{
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 80vh;
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
 }
 
 /* ----- text ex Add your collection name ------ */
-.label{
-color: #6a52f0;
-margin-bottom: 40px;
-font-size: 15px;
+.label {
+  color: #6a52f0;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+/* ---------- cancel --------------------- */
+
+.canceldiv {
+  position: absolute;
+  object-fit: fill;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  right: 10px;
+  top: 10px;
+}
+
+.canceldiv img{
+  width: 40px;
+}
+
+.cancel:hover,
+.cancel:visited,
+.cancel:link,
+.cancel:active {
+  color: white;
+}
+
+/* ------------------ upload file ------------------------- */
+
+.spe::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.spe::before {
+  content: url("./../images/addfile.svg");
+  cursor: pointer;
+  /* outline: none;
+  /* white-space: nowrap; */
+  /*-webkit-user-select: none; */
+}
+
+/* ------------------ Last step aka End of creation ------------------------- */
+
+.field{
+  min-width: 350px;
+  max-width: 350px;
+  min-height: 100px;
+  max-height: 100px;
+}
+
+.done{
+  margin-top: 40px;
+  cursor: pointer;
+  border: none ;
 }

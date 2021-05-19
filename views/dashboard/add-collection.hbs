@@ -1,15 +1,20 @@
 <body class="body">
+
+
+
 <form
   method="post"
   action="/dashboard/add-collection"
   class="form"
   enctype="multipart/form-data"
 >
-  <h1 class="title">Create a new collection</h1>
-
-  <a href="/dashboard">Annuler</a><span>et revenir au dashboard</span>
 
   <div class="step one shadow">
+
+<div class="canceldiv">
+  <a href="/dashboard"> <img src="/images/close.svg" alt="close"> </a>
+</div>
+
     <p>Your collection</p>
     <label for="name" class="label">Add a name to your collection</label>
     <input
@@ -23,13 +28,18 @@
   </div>
 
  <div class="step two shadow">
+
+   <div class="canceldiv">
+  <a href="/dashboard"> <img src="/images/close.svg" alt="close"> </a>
+</div>
+
    <p>Your collection</p>
   <label for="image" class="label">
-    Choose a cover picture
-    
+    Choose a cover picture 
   </label>
+
   <input
-    class="input"
+    class="input spe"
     type="file"
     id="image"
     name="image"
@@ -39,16 +49,22 @@
 </div>
 
 <div class="step three shadow">
+
+<div class="canceldiv">
+  <a href="/dashboard"> <img src="/images/close.svg" alt="close"> </a>
+</div>
+
   <p>Your collection</p>
   <label for="description" class="label">Add a simple description</label>
   <textarea
     type="text"
-    class="input"
+    class="input smallerradius field"
     id="description"
     name="description"
     placeholder="ex: Articles, videos .. for our next trip "
+    maxlength="50"
   ></textarea>
-  <input type="submit" value="Done">
+  <input type="submit" value="Done" class="done button">
 </div>
 
   
