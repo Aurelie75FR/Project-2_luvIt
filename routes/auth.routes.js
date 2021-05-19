@@ -4,11 +4,11 @@ const bcrypt = require('bcrypt')
 const User = require('../models/model.user')
 
 //GET to log in 
-router.get("/signin", (req,res,next)=>{
+router.get("/auth/signin", (req,res,next)=>{
     res.render("index")
 })
 //GET to signup
-router.get("/signup", (req,res,next)=>{
+router.get("/auth/signup", (req,res,next)=>{
     res.render("signup")
 })
 //GET log out redirect homepage
@@ -18,7 +18,7 @@ router.get("/signout", (req,res,next)=>{
     })
 })
 //POST login homepage
-router.post("/signin", async(req,res,next)=>{
+router.post("/auth/signin", async(req,res,next)=>{
     const {email, password} = req.body
     const foundUser =await User.findOne({email:email})
 
@@ -40,14 +40,14 @@ router.post("/signin", async(req,res,next)=>{
     }
 })
 //POST signup redirect to homepage 
-router.post("/signup", async (req, res, next) => {
+router.post("/auth/signup", async (req, res, next) => {
     try {
       const newUser = { ...req.body };
       const foundUser = await User.findOne({ email: newUser.email });
   
       if (foundUser) {
         req.flash("warning", "email already registered");
-        res.redirect("/signup");
+        res.redirect("/auth/signup");
       } else {
         const hashedPassword = bcrypt.hashSync(newUser.password, 10);
         newUser.password = hashedPassword;
@@ -61,7 +61,7 @@ router.post("/signup", async (req, res, next) => {
         errorMsg += err.errors[field].message + "\n";
       }
       req.flash("error", errorMsg);
-      res.redirect("/signup");
+      res.redirect("/auth/signup");
     }
   });
 
