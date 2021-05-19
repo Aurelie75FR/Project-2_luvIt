@@ -16,7 +16,7 @@ const dashboardRouter = require("./routes/dashboard.routes");
 const authRouter = require("./routes/auth.routes");
 const MongoStore = require("connect-mongo")
 const app = express();
-const dev_mode= false;
+const dev_mode= true;
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

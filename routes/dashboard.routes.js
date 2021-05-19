@@ -73,11 +73,11 @@ router.get("/dashboard/delete/:id", (req, res, next) => {
 // TO MODIFY : DISPLAY ONLY THE CARD THAT ARE LINKED WITH THE COLLECTION
 router.get("/dashboard/collection/:id", async (req, res, next) => {
   try {
-    const cardInCollection = await CollectionModel.findById(
+    const collection = await CollectionModel.findById(
       req.params.id
     ).populate("cards");
-    console.log(cardInCollection);
-    res.render("dashboard/card", {cardInCollection});
+    console.log(collection);
+    res.render("dashboard/card", {collection});
   } catch (err) {
     next(err);
   }
