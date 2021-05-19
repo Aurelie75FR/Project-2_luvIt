@@ -1,4 +1,4 @@
-/* div avec toutes les collection */
+/* -------------------- grosse div avec toutes les collection --------------------------*/
 
 .collection-maincontainer {
   width: 80vw;
@@ -9,11 +9,13 @@
   margin: 0 auto;
 }
 
-/* collection + delete & edit */
+/* ------------------- ensemble collection + icons delete & edit ------------------------*/
 
 .collectioncard {
   width: 330px;
 }
+
+/* ---------------------- icons delete & edit --------------------- */
 
 .suppmodif{
 display: flex;
@@ -21,14 +23,18 @@ justify-content: flex-end;
 margin-bottom: 10px;
 }
 
+.suppmodif img{
+  width: 18px;
+ }
+
+/*icons invisibles pour garder l'espacement */
+
 .transp{
  visibility: hidden;}
 
-.suppmodif img{
- width: 18px;
-}
 
-/* div contour violet avec image, description .. */
+/* --------------------  div contour violet avec image, description .. -------------- */
+
 
 .parent{
 background-color: #04001ca4;
@@ -44,7 +50,7 @@ background-color: #04001ca4;
   border-radius: 10px;
 }
 
-/* add a collection */
+/* -------------------------------- add a collection ----------------------------------*/
 
 
 .purpleborder div {

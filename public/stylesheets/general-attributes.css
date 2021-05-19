@@ -1,3 +1,5 @@
+/*COLLECTION, CARD sur le côté 90° */
+
 .pagetitle {
   z-index: -1;
   position: fixed;
@@ -13,15 +15,21 @@
   transform: rotate(90deg);
 }
 
-.pgcard{
+/* pas sure qu'il soit utilisé? */
+
+/* .pgcard{
   left: -125px
-}
+} */
+
+/* Encard bord violet */
 
 .purpleborder {
   border: 1px solid #6a52f0;
   border-radius: 15px;
   padding: 20px;
 }
+
+/* Titre gras des collections par exemple */
 
 .purplefat {
   font-weight: bold;
@@ -30,32 +38,39 @@
   color: #6a52f0;
 }
 
+/* Text description des collections par exemple */
+
 p {
   width: fit-content;
   margin: 0;
   text-align: center;
 }
 
-.white{
+/* Doublon de whitetext */
+/* .white{
 color: white;
 font-size: 12px;
-}
+} */
 
 .shadow {
   box-shadow: 0px 4px 30px rgba(106, 82, 240, 0.22);
 }
 
-a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
 }
+
+/* Quand click dans input pas de contours */
 
 *:focus {
   outline: none;
 }
 
+/* Text description des collections par exemple */
 .whitetext {
   color: white;
   font-size: 12px;
 }
-
