@@ -1,0 +1,15 @@
+.size{
+    position: relative;
+width: 80vw;
+margin: 0 auto;
+margin-top: 90px;
+min-height: 60vh;
+}
+
+.sticky{
+    position: absolute;
+    top: -60px;
+    font-size: 40px;
+    color: #6A52F0;
+    font-weight: 700;
+}

@@ -1,12 +1,12 @@
 /* -------------------- grosse div avec toutes les collection --------------------------*/
+/* DO NOT TOUCH */
 
 .collection-maincontainer {
-  width: 80vw;
   display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  padding: 50px 20px 100px 20px;
-  margin: 0 auto;
+  grid-gap: 60px;
+  grid-template-columns: repeat(auto-fit, 330px);
+  padding: 50px 145px 100px 165px;
+  justify-content: center;
 }
 
 /* ------------------- ensemble collection + icons delete & edit ------------------------*/

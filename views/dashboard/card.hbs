@@ -1,22 +1,20 @@
 <body class="body">
 
-  <h1 class="pagetitle pgcard">Cards</h1>
+<div class="purpleborder size">
+  <h1 class="pagetitle">Cards</h1>
 
-  <p class="whitetext">{{cardInCollection.name}}</p>
+  <p class="sticky">{{collection.name}}</p>
   <a class="whitetext" href="javascript:history.back()"> </a>
 
   <a href="/dashboard/add-card">Add a new card</a>
-  {{! <a href="card/add-card">Add a new card</a> }}
 
-  <h1>Hello</h1>
 
-  {{collection.cards}}
 
   {{#each collection.cards}}
     <div>
       <h2>Name : {{this.name}}</h2>
       <p>Description : {{this.description}}</p>
-      <h3>my links :</h3>
+      <h3>My links :</h3>
       {{! add a each ?? }}
       <a href="{{this.links}}">{{this.links}}</a>
 
@@ -24,5 +22,9 @@
     <a href="/collection/update-card/{{this._id}}">Update card</a>
     <a href="/collection/delete/{{this._id}}">Delete card</a>
   {{/each}}
+
+
+
+  </div>
 
 </body>

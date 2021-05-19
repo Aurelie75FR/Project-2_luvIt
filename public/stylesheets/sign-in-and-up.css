@@ -24,12 +24,14 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 40px;
+  
 }
 
 /* event flip */
 
 .join.flip {
   transform: rotateY(180deg);
+  
 }
 
 
