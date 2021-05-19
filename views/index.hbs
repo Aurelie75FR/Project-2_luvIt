@@ -41,9 +41,9 @@
       </div>
 
       <div class="violet">
+        {{> flash_message }}
         <p class="fat">Create an <br /> account</p>
-        <form method="post" action="/auth/signup" class="formsign">
-          {{!-- {{> flashMessage }} --}}
+        <form method="post" action="/auth/signup" class="formsign"> 
 
           <label for="firstName"></label>
           <input
