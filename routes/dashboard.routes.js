@@ -4,9 +4,10 @@ var router = express.Router();
 const uploader = require("./../config/cloudinary"); // cloudinary set up
 const CollectionModel = require("../models/model.collection");
 const CardModel = require("../models/model.card");
+const protectRoute = require("./../middlewares/protectPrivateRoute");
 
 // display the dashboard view with the list of collections
-router.get("/dashboard", (req, res, next) => {
+router.get("/dashboard", protectRoute, (req, res, next) => {
   CollectionModel.find()
     .then((result) =>
       res.render("dashboard/collection", { collection: result })
@@ -31,7 +32,7 @@ router.post(
     const newCollection = { ...req.body };
     if (!req.file) newCollection.image = undefined;
     else newCollection.image = req.file.path;
-    newCollection.user_id = req.session.currentUser.id
+    newCollection.user_id = req.session.currentUser.id;
 
     CollectionModel.create(newCollection)
       .then(() => res.redirect("/dashboard"))
@@ -72,9 +73,11 @@ router.get("/dashboard/delete/:id", (req, res, next) => {
 // TO MODIFY : DISPLAY ONLY THE CARD THAT ARE LINKED WITH THE COLLECTION
 router.get("/dashboard/collection/:id", async (req, res, next) => {
   try {
-    const cardInCollection =  await CollectionModel.findById(req.params.id).populate("cards");
+    const cardInCollection = await CollectionModel.findById(
+      req.params.id
+    ).populate("cards");
     console.log(cardInCollection);
-    res.render("dashboard/card", cardInCollection);
+    res.render("dashboard/card", {cardInCollection});
   } catch (err) {
     next(err);
   }
@@ -82,31 +85,32 @@ router.get("/dashboard/collection/:id", async (req, res, next) => {
 
 // CREATE (GET) a new card
 router.get("/dashboard/add-card", async (req, res, next) => {
-  try{
-    const userCollections = await CollectionModel.find({user_id: req.session.currentUser.id})
+  try {
+    const userCollections = await CollectionModel.find({
+      user_id: req.session.currentUser.id,
+    });
 
-    res.render('dashboard/add-card', {userCollections})
-
-  }catch(err){
-    next(err)
+    res.render("dashboard/add-card", { userCollections });
+  } catch (err) {
+    next(err);
   }
-
 });
 
 // CREATE (POST) a new card
 router.post("/dashboard", uploader.single("image"), (req, res, next) => {
-    const newCard = { ...req.body };
-    if (!req.file) newCard.image = undefined;
-    else newCard.image = req.file.path;
+  const newCard = { ...req.body };
+  if (!req.file) newCard.image = undefined;
+  else newCard.image = req.file.path;
 
-    CardModel.create(newCard)
-      .then(() => {
-        CollectionModel.findByIdAndUpdate(newCard.collection.id, {cards: [...cards, newCard]})
-        res.redirect("./dashboard")
-      })
-      .catch(next);
-  }
-);
+  CardModel.create(newCard)
+    .then(() => {
+      CollectionModel.findByIdAndUpdate(newCard.collection.id, {
+        cards: [...cards, newCard],
+      });
+      res.redirect("./dashboard");
+    })
+    .catch(next);
+});
 
 // UPDATE(GET) a existing card
 router.get("/collection/update-card/:id", (req, res, next) => {

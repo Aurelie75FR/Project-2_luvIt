@@ -1,28 +1,28 @@
 <body class="body">
 
+  <h1 class="pagetitle pgcard">Cards</h1>
 
-<h1 class="pagetitle pgcard">Cards</h1>
+  <p class="whitetext">{{collection.name}}</p>
+  <a class="whitetext" href="javascript:history.back()"> </a>
 
+  <a href="/dashboard/add-card">Add a new card</a>
+  {{! <a href="card/add-card">Add a new card</a> }}
 
-<p class="whitetext">{{collection.name}}</p>
-<a class="whitetext" href="javascript:history.back()"> < </a>
+  <h1>Hello</h1>
 
-<a href="/dashboard/add-card">Add a new card</a>
-{{!-- <a href="card/add-card">Add a new card</a> --}}
+  {{cardInCollection.cards}}
 
+  {{#each cardInCollection.cards}}
+    <div>
+      <h2>Name : {{this.name}}</h2>
+      <p>Description : {{this.description}}</p>
+      <h3>my links :</h3>
+      {{! add a each ?? }}
+      <a href="{{this.links}}">{{this.links}}</a>
 
-{{#each cardInCollection.cards}}
-<div>
-    <h2>Name : {{this.name}}</h2>
-    <p>Description : {{this.description}}</p>
-    <h3>my links :</h3>
-{{!-- add a each ?? --}}
-    <a href="{{this.links}}">{{this.links}}</a>
-
-</div>
-<a href="/collection/update-card/{{this._id}}">Update card</a>
-<a href="/collection/delete/{{this._id}}">Delete card</a>
-{{/each}}
+    </div>
+    <a href="/collection/update-card/{{this._id}}">Update card</a>
+    <a href="/collection/delete/{{this._id}}">Delete card</a>
+  {{/each}}
 
 </body>
-

@@ -7,4 +7,4 @@ module.exports = (req, res, next) => {
       email: "admin@shop-sp4.com",
     };
     next();
-  };
+};

@@ -1,21 +1,22 @@
 require("dotenv").config();
 require("./config/mongo");
 
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var hbs = require("hbs");
-var flash = require("connect-flash");
-var session = require("express-session");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const hbs = require("hbs");
+const flash = require("connect-flash");
+const session = require("express-session");
 
-var indexRouter = require("./routes/index.routes");
-var usersRouter = require("./routes/users.routes");
-var dashboardRouter = require("./routes/dashboard.routes");
-var authRouter = require("./routes/auth.routes");
-
-var app = express();
+const indexRouter = require("./routes/index.routes");
+const usersRouter = require("./routes/users.routes");
+const dashboardRouter = require("./routes/dashboard.routes");
+const authRouter = require("./routes/auth.routes");
+const MongoStore = require("connect-mongo")
+const app = express();
+const dev_mode= false;
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -26,16 +27,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+hbs.registerPartials(__dirname + "/views/partials");
 
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     saveUninitialized: true,
-//     resave: true
-//   })
-// );
 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: true,
+    resave: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI
+    })
+  })
+);
 app.use(flash());
+
+
+
+//custom middlewares
+if (dev_mode === true) {
+  app.use(require("./middlewares/devMode")); // active le mode dev pour éviter les deconnexions
+  app.use(require("./middlewares/debugSessionInfos")); // affiche le contenu de la session
+}
+
+app.use(require("./middlewares/exposeLoginStatus")); // expose le status de connexion aux templates
+app.use(require("./middlewares/exposeFlashMessage")); // affiche les messages dans le template
+
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

@@ -9,7 +9,7 @@ router.get("/auth/signin", (req,res,next)=>{
 })
 //GET to signup
 router.get("/auth/signup", (req,res,next)=>{
-    res.render("signup")
+    res.render("index")
 })
 //GET log out redirect homepage
 router.get("/signout", (req,res,next)=>{
@@ -53,7 +53,7 @@ router.post("/auth/signup", async (req, res, next) => {
         newUser.password = hashedPassword;
         await User.create(newUser);
         req.flash("success", "Congrats! You can log in");
-        res.redirect("/index");
+        res.redirect("/auth/signin");
       }
     } catch (err) {
       var errorMsg = "";
