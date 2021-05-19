@@ -13,8 +13,7 @@
 
 .collectioncard {
   width: 330px;
-  /* justify-content: center;
-  align-content: center; */
+
 }
 
 /* ---------------------- icons delete & edit --------------------- */
@@ -40,6 +39,7 @@ margin-bottom: 10px;
 
 .parent{
 background-color: #04001ca4;
+height: 280px;
 }
 
 .imgdecale {
@@ -55,7 +55,7 @@ background-color: #04001ca4;
 /* -------------------------------- add a collection ----------------------------------*/
 
 
-.purpleborder div {
+.violet {
   background-color: #6a52f0;
   border-radius: 10px;
   display: flex;

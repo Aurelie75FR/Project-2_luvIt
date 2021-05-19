@@ -1,15 +1,36 @@
+/* grosse div*/
 .size{
-    position: relative;
-width: 80vw;
-margin: 0 auto;
+position: relative;
+margin-left: 120px;
+margin-right: 80px;
 margin-top: 90px;
-min-height: 60vh;
+margin-bottom: 60px;
+min-height: 50vh;
+display: flex;
+justify-content: flex-start;
+
 }
 
+
+/* titre de la collection */
 .sticky{
     position: absolute;
-    top: -60px;
-    font-size: 40px;
+    top: -50px;
+    left: 0px;
+    font-size: 30px;
     color: #6A52F0;
-    font-weight: 700;
+    font-weight: 600;
+}
+
+/* titre card placé plus haut */
+.pgcard{
+    top: 200px;
+    left: -120px;
+    position: fixed;
+  }
+
+/* liens */
+
+.lien{
+font-size: 12px;
 }

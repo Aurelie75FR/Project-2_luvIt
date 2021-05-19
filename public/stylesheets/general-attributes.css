@@ -2,10 +2,9 @@
 
 .pagetitle {
   z-index: -1;
-  position: absolute;
+  position: fixed;
   left: -260px;
-  top: 300px;
-
+  top: 280px;
   color: rgba(255, 235, 205, 0);
   font-weight: 900;
   font-size: 96px;
@@ -15,17 +14,14 @@
   transform: rotate(90deg);
 }
 
-/* titre card placé differement */
-.pgcard{
-  left: -125px
-}
+
 
 /* Encard bord violet */
 
 .purpleborder {
   border: 1px solid #6a52f0;
   border-radius: 15px;
-  padding: 20px;
+  padding: 20px 20px 30px 20px;
 }
 
 /* Titre gras des collections par exemple */
@@ -35,6 +31,7 @@
   font-size: 18px;
   line-height: 40px;
   color: #6a52f0;
+  padding-top: 10px;
 }
 
 /* Text description des collections par exemple */

@@ -1,30 +1,39 @@
-<body class="body">
+<body class="body relative">
+<h1 class="pagetitle pgcard">Cards</h1>
 
-<div class="purpleborder size">
-  <h1 class="pagetitle">Cards</h1>
-
+<div class="purpleborder size collection-maincontainer">
   <p class="sticky">{{collection.name}}</p>
-  <a class="whitetext" href="javascript:history.back()"> </a>
-
-  <a href="/dashboard/add-card">Add a new card</a>
-
-
+  {{!-- <a class="whitetext" href="javascript:history.back()"> </a> --}}
 
   {{#each collection.cards}}
-    <div>
-      <h2>Name : {{this.name}}</h2>
-      <p>Description : {{this.description}}</p>
-      <h3>My links :</h3>
-      {{! add a each ?? }}
-      <a href="{{this.links}}">{{this.links}}</a>
+   <div class="collectioncard">
 
+       <div class="suppmodif">
+          <a href="/collection/update-card/{{this._id}}" class="link"><img
+              class="icon"
+              src="/images/edit.svg"
+              alt=""
+            /></a>
+          <a href="/collection/delete/{{this._id}}" class="link"><img
+              class="icon"
+              src="/images/trash.svg"
+              alt=""
+            /></a>
+        </div>
+
+<div class="purpleborder parent">
+
+  <a href="dashboard/collection/{{this._id}}">
+  <img class="imgdecale" src="{{this.image}}" alt=""/></a>
+  <p class="purplefat">{{this.name}}</p>
+  <p class="whitetext">{{this.description}}</p>
+  <a class="lien" href="{{this.links}}">{{this.links}}</a>
+
+</div>
+      
     </div>
-    <a href="/collection/update-card/{{this._id}}">Update card</a>
-    <a href="/collection/delete/{{this._id}}">Delete card</a>
-  {{/each}}
-
-
-
+{{/each}}
   </div>
+</div>
 
 </body>
