@@ -2,23 +2,23 @@
 
 .pagetitle {
   z-index: -1;
-  position: fixed;
+  position: absolute;
   left: -260px;
   top: 300px;
 
   color: rgba(255, 235, 205, 0);
   font-weight: 900;
   font-size: 96px;
-  line-height: 40px;
+  
 
   -webkit-text-stroke: 1.5px #6a52f0;
   transform: rotate(90deg);
 }
 
-/* pas sure qu'il soit utilisé? */
-/* .pgcard{
+/* titre card placé differement */
+.pgcard{
   left: -125px
-} */
+}
 
 /* Encard bord violet */
 
@@ -45,11 +45,7 @@ p {
   text-align: center;
 }
 
-/* Doublon de whitetext */
-/* .white{
-color: white;
-font-size: 12px;
-} */
+
 
 .shadow {
   box-shadow: 0px 4px 30px rgba(106, 82, 240, 0.22);
