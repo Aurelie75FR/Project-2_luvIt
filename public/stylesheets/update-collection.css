@@ -1,7 +1,73 @@
-/* .formcol{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
+/* -------- Encards des différentes étapes ----------- */
+/* .step {
+    position: relative;
+     background-color: #04001c;
+     border-radius: 20px;
+     width: fit-content;
+     padding: 90px 80px;
+     color: white;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   } */
+
+.left{
     align-items: flex-start;
-    height: fit-content;
-} */
+}
+
+/*
+   .step p {
+    ...
+   }
+   
+  .step button {
+  ...
+   } */
+
+/* -------- Zone infos à remplir ADD-COLLECTION----------- */
+/* 
+.input {
+  
+    color: white;
+    border: 1px solid #6a52f0;
+    border-radius: 30px;
+    width: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .smallerradius{
+    border-radius: 15px;
+  }
+*/
+
+.smallerinput {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  min-width: 300px;
+}
+
+/* ----- text ex Add your collection name ------ */
+/* .label {
+    color: #6a52f0;
+    margin-bottom: 40px;
+    font-size: 15px;
+  } 
+*/
+
+.closer {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+
+/* ----------- */
+.center{
+    text-align: center;
+    align-self: center;
+    margin-bottom: 10px;
+}
