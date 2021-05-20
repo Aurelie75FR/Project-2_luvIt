@@ -1,28 +1,72 @@
-<body class="body">
+<body class="body relative">
+<h1 class="pagetitle pgcard">Cards</h1>
 
-  <h1 class="pagetitle pgcard">Cards</h1>
+<div class="purpleborder size ">
+  <p class="sticky">{{collection.name}}</p>
 
-  <p class="whitetext">{{collection.name}}</p>
-  <a class="whitetext" href="javascript:history.back()"> </a>
+  <div class="canceldiv">
+  <a href="javascript:history.back()"> <img src="/images/close.svg" alt="close"></a>
+</div>
+  
 
   <a href="/dashboard/add-card/{{collection._id}}">Add a new card</a>
   {{! <a href="card/add-card">Add a new card</a> }}
-
-  <h1>Hello</h1>
-
-  {{collection.cards}}
-
   {{#each collection.cards}}
-    <div>
-      <h2>Name : {{this.name}}</h2>
-      <p>Description : {{this.description}}</p>
-      <h3>my links :</h3>
-      {{! add a each ?? }}
-      <a href="{{this.links}}">{{this.links}}</a>
+   <div class="collectioncard">
 
+       <div class="suppmodif">
+          <a href="/collection/update-card/{{this._id}}" class="link"><img
+              class="icon"
+              src="/images/edit.svg"
+              alt=""
+            /></a>
+          <a href="/collection/delete/{{this._id}}" class="link"><img
+              class="icon"
+              src="/images/trash.svg"
+              alt=""
+            /></a>
+        </div>
+
+<div class="purpleborder parent">
+
+  <a href="dashboard/collection/{{this._id}}">
+  <img class="imgdecalage" src="{{this.image}}" alt=""/></a>
+  <p class="purplefat">{{this.name}}</p>
+  <p class="whitetext">{{this.description}}</p>
+  
+  <div>
+  <a class="lien" href="{{this.links}}">{{this.links}}</a>
+  
+</div>
+
+</div>
+      
     </div>
-    <a href="/collection/update-card/{{this._id}}">Update card</a>
-    <a href="/collection/delete/{{this._id}}">Delete card</a>
-  {{/each}}
+{{/each}}
+
+<div class="collectioncard">
+
+<div class="suppmodif transp">
+          <a href="collection/update-collection/{{this._id}}" class="link"><img
+              class="icon "
+              src="images/edit.svg"
+              alt=""
+            /></a>
+          <a href="collection/delete/{{this._id}}" class="link"><img
+              class="icon "
+              src="images/trash.svg"
+              alt=""
+            /></a>
+        </div>
+
+    <div class="purpleborder parent collectioncard">
+      <div class="imgdecale violet">
+        <a href="/dashboard/collection/{{collection.id}}/add-card"><img  src="/images/plus.svg" alt=""/></a>
+        </div>
+    </div>
+
+  </div>
+
+  </div>
 
 </body>

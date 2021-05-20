@@ -1,0 +1,51 @@
+/* grosse div*/
+.size{
+position: relative;
+margin-left: 120px;
+margin-right: 80px;
+margin-top: 90px;
+margin-bottom: 60px;
+min-height: 50vh;
+/* display: flex;
+justify-content: flex-start; */
+display: grid;
+  grid-template-columns: 380px 380px 380px;
+  grid-auto-flow: column;
+  grid-auto-flow: row;
+}
+
+
+/* titre de la collection */
+.sticky{
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    font-size: 30px;
+    color: #6A52F0;
+    font-weight: 600;
+}
+
+/* titre card placé plus haut */
+.pgcard{
+    top: 200px;
+    left: -120px;
+    position: fixed;
+  }
+
+/* liens */
+.lien{
+font-size: 12px;
+border: solid 1px purple;
+width: 100px;
+}
+
+
+.imgdecalage {
+    position: relative;
+    object-fit: cover;
+    right: 40px;
+    width: 280px;
+    height: 160px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }

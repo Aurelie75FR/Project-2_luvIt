@@ -46,12 +46,7 @@
   border-radius: 15px;
 }
 
-/*-> used in UPDATE-COLLECTION <-*/
 
-.smallerinput{
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
 
 /* -------- Formulaire centré en colonne ----------- */
 
@@ -69,12 +64,6 @@
   font-size: 15px;
 }
 
-/*-> used in UPDATE-COLLECTION <-*/
-
-.closer{
-  margin-bottom: 8px;
-  margin-top: 20px;
-}
 
 /* ---------- cancel --------------------- */
 
