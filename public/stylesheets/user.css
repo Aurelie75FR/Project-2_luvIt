@@ -6,3 +6,23 @@
 .dablack{
     color: #04001C;
 }
+
+#user-container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#logout {
+    box-sizing: border-box;
+    width: 291px;
+    text-align: center;
+}
+
+#update-btn {
+    width: 291px;
+    text-align: center;
+}

@@ -10,7 +10,7 @@
 </div>
 {{currentUser.username}} --}}
 
-<div >
+<div id="user-container">
         <p class="fat dablanc">Your profil</p>
         <form method="post" action="/user/{{actualUser._id}}" class="formsign"> 
 
@@ -43,9 +43,9 @@
             name="password"
             value="{{actualUser.password}}"
           /> --}}
-          <button class="button purple">Update</button>
+          <button class="button purple" id="update-btn">Update</button>
         </form>
-<a class="button purple" href="/signout">Log out</a>
+<a class="button purple" id="logout" href="/signout">Log out</a>
       </div>
       
 </body>
