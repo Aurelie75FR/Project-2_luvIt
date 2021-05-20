@@ -4,6 +4,7 @@ var router = express.Router();
 const uploader = require("./../config/cloudinary"); // cloudinary set up
 const CollectionModel = require("../models/model.collection");
 const CardModel = require("../models/model.card");
+const UserModel = require("./../models/model.user")
 const protectRoute = require("./../middlewares/protectPrivateRoute");
 
 // display the dashboard view with the list of collections
@@ -26,9 +27,7 @@ router.get("/dashboard/add-collection", (req, res, next) => {
 
 // CREATE (POST) a new collection
 router.post(
-  "/dashboard/add-collection",
-  uploader.single("image"),
-  (req, res, next) => {
+  "/dashboard/add-collection", uploader.single("image"), (req, res, next) => {
     const newCollection = { ...req.body };
     if (!req.file) newCollection.image = undefined;
     else newCollection.image = req.file.path;
@@ -84,30 +83,34 @@ router.get("/dashboard/collection/:id", async (req, res, next) => {
 });
 
 // CREATE (GET) a new card
-router.get("/dashboard/add-card", async (req, res, next) => {
+router.get("/dashboard/collection/:id/add-card", async (req, res, next) => {
   try {
-    const userCollections = await CollectionModel.find({
-      user_id: req.session.currentUser.id,
-    });
-
-    res.render("dashboard/add-card", { userCollections });
+    // const userCollections = await CollectionModel.find({
+    //   user_id: req.session.currentUser.id,
+    //   cards : req.params.id})
+    const user = await UserModel.find()
+    const card = await CardModel.find()
+    res.render("dashboard/add-card", { user, card, collectionId: req.params.id });
   } catch (err) {
     next(err);
   }
 });
 
 // CREATE (POST) a new card
-router.post("/dashboard", uploader.single("image"), (req, res, next) => {
+router.post("/dashboard/:id/add-card", uploader.single("image"), (req, res, next) => {
   const newCard = { ...req.body };
+  console.log(req.params.id)
   if (!req.file) newCard.image = undefined;
   else newCard.image = req.file.path;
 
   CardModel.create(newCard)
-    .then(() => {
-      CollectionModel.findByIdAndUpdate(newCard.collection.id, {
-        cards: [...cards, newCard],
-      });
-      res.redirect("./dashboard");
+    .then((createdCard) => {
+ 
+      CollectionModel.findByIdAndUpdate(req.params.id, {$push: {cards: createdCard._id}}, {new: true}).then(collection => {
+        console.log(collection)
+      }).catch(err => console.log(err))
+      
+      res.redirect("/dashboard");
     })
     .catch(next);
 });
