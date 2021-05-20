@@ -54,21 +54,10 @@
         {{#each card.links}}
         <div>
           <input class="input smallerinput space" type="text" id="name" name="name" value="{{this}}"/>
-          <a href="card/delete/{{this._id}}" class="link"><img
-              class="icon petit"
-              src="/images/trash.svg"
-              alt=""
-            /></a>
+          
             </div>
         {{/each}}
-        <div>
-        <input class="input smallerinput space" type="text" id="name" name="name" placeholder="New link"/>
-         <a href="card/delete/{{this._id}}" class="link"><img
-              class="icon petit blanco"
-              src="/images/plusviolet.svg"
-              alt=""
-            /></a>
-            </div>
+        
       </div>
 </div>
       <input type="submit" value="Done" class="done button center" />
