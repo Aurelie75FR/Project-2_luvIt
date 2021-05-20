@@ -28,7 +28,7 @@
       <div class="gladtomeetyou">
         <p class="fat closer">Hello <br />there !</p>
         <p class="small">Glad to finally<br />meet you</p>
-        <div class="button">SIGN UP</div>
+        <div class="button clicked">SIGN UP</div>
       </div>
 
     </div>
@@ -83,9 +83,16 @@
   </div>
 
   <script>
+
     let card = document.querySelector(".button.click"); 
     let join =document.querySelector(".join"); 
     card.addEventListener("click", function() {
+    join.classList.toggle("flip"); });
+
+
+let carddeux = document.querySelector(".button.clicked"); 
+     
+    carddeux.addEventListener("click", function() {
     join.classList.toggle("flip"); });
   </script>
 
