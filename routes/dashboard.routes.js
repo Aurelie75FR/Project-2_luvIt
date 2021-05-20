@@ -9,7 +9,7 @@ const protectRoute = require("./../middlewares/protectPrivateRoute");
 
 // display the dashboard view with the list of collections
 router.get("/dashboard", protectRoute, (req, res, next) => {
-  CollectionModel.find()
+  CollectionModel.find({user_id : req.session.currentUser})
     .then((result) =>
       res.render("dashboard/collection", { collection: result })
     )
@@ -17,7 +17,7 @@ router.get("/dashboard", protectRoute, (req, res, next) => {
 });
 
 // CREATE (GET) a new collection
-router.get("/dashboard/add-collection", (req, res, next) => {
+router.get("/dashboard/add-collection", protectRoute, (req, res, next) => {
   CollectionModel.find()
     .then((result) =>
       res.render("dashboard/add-collection", { collection: result })
@@ -58,7 +58,7 @@ router.post(
 
 // UPDATE (GET) a existing collection
 
-router.get("/dashboard/update-collection/:id", (req, res, next) => {
+router.get("/dashboard/update-collection/:id", protectRoute, (req, res, next) => {
   CollectionModel.findById(req.params.id)
     .populate("card")
     .then((result) =>
@@ -86,7 +86,7 @@ router.post("/dashboard/:id", uploader.single("image"), (req, res, next) => {
     .catch(next);
 });
 
-router.get("/dashboard/delete/:id", (req, res, next) => {
+router.get("/dashboard/delete/:id", protectRoute, (req, res, next) => {
   CollectionModel.findByIdAndRemove(req.params.id)
     .then(() => res.redirect("/dashboard"))
     .catch(next);
@@ -95,7 +95,7 @@ router.get("/dashboard/delete/:id", (req, res, next) => {
 // display the cards view with the list of cards (within the collection)
 
 // TO MODIFY : DISPLAY ONLY THE CARD THAT ARE LINKED WITH THE COLLECTION
-router.get("/dashboard/collection/:id", async (req, res, next) => {
+router.get("/dashboard/collection/:id", protectRoute, async (req, res, next) => {
   try {
     const collection = await CollectionModel.findById(req.params.id).populate(
       "cards"
@@ -108,7 +108,7 @@ router.get("/dashboard/collection/:id", async (req, res, next) => {
 });
 
 // CREATE (GET) a new card
-router.get("/dashboard/collection/:id/add-card", async (req, res, next) => {
+router.get("/dashboard/collection/:id/add-card", protectRoute, async (req, res, next) => {
   try {
     // const userCollections = await CollectionModel.find({
     //   user_id: req.session.currentUser.id,
@@ -154,7 +154,7 @@ router.post(
 );
 
 // UPDATE(GET) a existing card
-router.get("/collection/update-card/:id", (req, res, next) => {
+router.get("/collection/update-card/:id", protectRoute, (req, res, next) => {
   UserModel.find();
   CollectionModel.find();
   CardModel.findById(req.params.id)
@@ -199,7 +199,7 @@ router.post(
 );
 
 //DELETE CARD
-router.get("/collection/delete/:id", (req, res, next) => {
+router.get("/collection/delete/:id", protectRoute, (req, res, next) => {
   CardModel.findByIdAndRemove(req.params.id)
     .then(() => res.redirect("/dashboard"))
     .catch(next);
