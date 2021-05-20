@@ -64,6 +64,21 @@ min-height: 280px;
   
 }
 
+.extend {
+  background-color: #6a52f0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  object-fit: cover;
+  right: 40px;
+  width: 310px;
+  height: 180px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
 .addcollection.purpleborder img {
   width: 20px;
   height: 20px;  
