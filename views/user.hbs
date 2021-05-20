@@ -1,6 +1,6 @@
-<h1>user</h1>
+<body class="body">
 
-<div class="profile-info">
+{{!-- <div class="profile-info">
     <ul>
         <li id="first-name">{{currentUser.firstName}}</li>
         <li id="last-name">{{currentUser.lastName}}</li>
@@ -8,4 +8,46 @@
         <li id="password">{{currentUser.password}}</li>
     </ul>
 </div>
-{{currentUser.username}}
+{{currentUser.username}} --}}
+
+<div >
+        <p class="fat dablanc">Your profil</p>
+        <form method="post" action="/auth/signup" class="formsign"> 
+
+          <label for="firstName"></label>
+          <input
+            class="inputone cursor dablack"
+            type="text"
+            name="firstName"
+            value="
+            {{actualUser.firstName}}"
+          />
+          <label for="lastName"></label>
+          <input
+            class="inputone cursor dablack"
+            type="text"
+            name="lastName"
+            value="{{actualUser.lastName}}"
+          />
+          <label for="email"></label>
+          <input
+            class="inputone cursor"
+            type="email"
+            name="email"
+            value="{{actualUser.email}}"
+          />
+          <label for="password"></label>
+          <input
+            class="inputone cursor"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="imtheboss"
+          />
+          <button class="button purple">Update</button>
+        </form>
+
+      </div>
+
+
+</body>
