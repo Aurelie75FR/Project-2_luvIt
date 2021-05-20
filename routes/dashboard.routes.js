@@ -117,23 +117,31 @@ router.post("/dashboard/:id/add-card", uploader.single("image"), (req, res, next
 
 // UPDATE(GET) a existing card
 router.get("/collection/update-card/:id", (req, res, next) => {
+  
+  UserModel.find()
+  CollectionModel.find()
   CardModel.findById(req.params.id)
     .then((result) => res.render("dashboard/update-card", { card: result }))
     .catch(next);
 });
 
 // UPDATE(POST) a existing card
-router.post(
-  "/collection/update-card/:id",
-  uploader.single("image"),
-  (req, res, next) => {
+router.post("/collection/:id/update-card",uploader.single("image"), (req, res, next) => {
     const editedCard = { ...req.body };
+    console.log(req.body)
+    console.log(editedCard);
     if (!req.file) editedCard.image = undefined;
     else editedCard.image = req.file.path;
 
     CardModel.findByIdAndUpdate(req.params.id, editedCard)
-      .then(() => res.redirect("/dashboard"))
-      .catch(next);
+    .then((edit) => {
+
+    CollectionModel.findByIdAndUpdate(req.params.id,  {$push: {cards: edit._id}}, {new: true}).then(collection => {
+      console.log(collection)
+    }).catch(err => console.log(err))
+    
+    res.redirect("/dashboard");
+  })
   }
 );
 
