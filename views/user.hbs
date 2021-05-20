@@ -12,7 +12,7 @@
 
 <div >
         <p class="fat dablanc">Your profil</p>
-        <form method="post" action="/auth/signup" class="formsign"> 
+        <form method="post" action="/user/{{actualUser._id}}" class="formsign"> 
 
           <label for="firstName"></label>
           <input
@@ -35,17 +35,17 @@
             name="email"
             value="{{actualUser.email}}"
           />
-          <label for="password"></label>
+          {{!-- <label for="password"></label>
           <input
             class="inputone cursor"
             type="password"
             id="password"
             name="password"
             value="{{actualUser.password}}"
-          />
+          /> --}}
           <button class="button purple">Update</button>
         </form>
-<a class="button purple" href="">Log out</a>
+<a class="button purple" href="/signout">Log out</a>
       </div>
       
 </body>
