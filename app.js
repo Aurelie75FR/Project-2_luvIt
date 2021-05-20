@@ -14,9 +14,9 @@ const indexRouter = require("./routes/index.routes");
 const usersRouter = require("./routes/users.routes");
 const dashboardRouter = require("./routes/dashboard.routes");
 const authRouter = require("./routes/auth.routes");
-const MongoStore = require("connect-mongo")
+const MongoStore = require("connect-mongo");
 const app = express();
-const dev_mode= false;
+const dev_mode = true;
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -29,20 +29,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 hbs.registerPartials(__dirname + "/views/partials");
 
-
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     saveUninitialized: true,
     resave: true,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGO_URI
-    })
+      mongoUrl: process.env.MONGO_URI,
+    }),
   })
 );
 app.use(flash());
-
-
 
 //custom middlewares
 if (dev_mode === true) {
@@ -52,7 +49,6 @@ if (dev_mode === true) {
 
 app.use(require("./middlewares/exposeLoginStatus")); // expose le status de connexion aux templates
 app.use(require("./middlewares/exposeFlashMessage")); // affiche les messages dans le template
-
 
 app.use("/", indexRouter);
 app.use("/", usersRouter);

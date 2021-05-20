@@ -4,7 +4,7 @@ var router = express.Router();
 const uploader = require("./../config/cloudinary"); // cloudinary set up
 const CollectionModel = require("../models/model.collection");
 const CardModel = require("../models/model.card");
-const UserModel = require("./../models/model.user")
+const UserModel = require("./../models/model.user");
 const protectRoute = require("./../middlewares/protectPrivateRoute");
 
 // display the dashboard view with the list of collections
@@ -27,26 +27,34 @@ router.get("/dashboard/add-collection", (req, res, next) => {
 
 // CREATE (POST) a new collection
 router.post(
-  "/dashboard/add-collection", uploader.single("image"), (req, res, next) => {
-    const newCollection = { ...req.body};
+  "/dashboard/add-collection",
+  uploader.single("image"),
+  (req, res, next) => {
+    const newCollection = { ...req.body };
     const actualUser = req.session.currentUser;
     if (!req.file) newCollection.image = undefined;
     else newCollection.image = req.file.path;
-    
+
     console.log(newCollection);
 
     CollectionModel.create(newCollection)
       .then((createdCollection) => {
-        console.log("req params id = ",req.params.id)
-        CollectionModel.findByIdAndUpdate(createdCollection, {user_id: actualUser}, {new: true}) //we link a user to the new collection
-        .then(collection => {
-          console.log(collection)
-        }).catch(err => console.log(err))
+        console.log("req params id = ", req.params.id);
+        CollectionModel.findByIdAndUpdate(
+          createdCollection,
+          { $push: { user_id: actualUser } },
+          { new: true }
+        ) //we link a user to the new collection
+          .then((collection) => {
+            console.log(collection);
+          })
+          .catch((err) => console.log(err));
 
-        res.redirect("/dashboard")
+        res.redirect("/dashboard");
       })
       .catch(next);
-    });
+  }
+);
 
 // UPDATE (GET) a existing collection
 
@@ -89,11 +97,11 @@ router.get("/dashboard/delete/:id", (req, res, next) => {
 // TO MODIFY : DISPLAY ONLY THE CARD THAT ARE LINKED WITH THE COLLECTION
 router.get("/dashboard/collection/:id", async (req, res, next) => {
   try {
-    const collection = await CollectionModel.findById(
-      req.params.id
-    ).populate("cards");
+    const collection = await CollectionModel.findById(req.params.id).populate(
+      "cards"
+    );
     console.log(collection);
-    res.render("dashboard/card", {collection});
+    res.render("dashboard/card", { collection });
   } catch (err) {
     next(err);
   }
@@ -105,48 +113,62 @@ router.get("/dashboard/collection/:id/add-card", async (req, res, next) => {
     // const userCollections = await CollectionModel.find({
     //   user_id: req.session.currentUser.id,
     //   cards : req.params.id})
-    const user = await UserModel.find()
-    const card = await CardModel.find()
-    res.render("dashboard/add-card", { user, card, collectionId: req.params.id });
+    const user = await UserModel.find();
+    const card = await CardModel.find();
+    res.render("dashboard/add-card", {
+      user,
+      card,
+      collectionId: req.params.id,
+    });
   } catch (err) {
     next(err);
   }
 });
 
 // CREATE (POST) a new card
-router.post("/dashboard/:id/add-card", uploader.single("image"), (req, res, next) => {
-  const newCard = { ...req.body };
-  console.log(req.params.id)
-  if (!req.file) newCard.image = undefined;
-  else newCard.image = req.file.path;
+router.post(
+  "/dashboard/:id/add-card",
+  uploader.single("image"),
+  (req, res, next) => {
+    const newCard = { ...req.body };
+    console.log(req.params.id);
+    if (!req.file) newCard.image = undefined;
+    else newCard.image = req.file.path;
 
-  CardModel.create(newCard)
-    .then((createdCard) => {
- 
-      CollectionModel.findByIdAndUpdate(req.params.id, {$push: {cards: createdCard._id}}, {new: true}).then(collection => {
-        console.log(collection)
-      }).catch(err => console.log(err))
-      
-      res.redirect("/dashboard");
-    })
-    .catch(next);
-});
+    CardModel.create(newCard)
+      .then((createdCard) => {
+        CollectionModel.findByIdAndUpdate(
+          req.params.id,
+          { $push: { cards: createdCard._id } },
+          { new: true }
+        )
+          .then((collection) => {
+            console.log(collection);
+          })
+          .catch((err) => console.log(err));
+
+        res.redirect("/dashboard");
+      })
+      .catch(next);
+  }
+);
 
 // UPDATE(GET) a existing card
 router.get("/collection/update-card/:id", (req, res, next) => {
-  
-  UserModel.find()
-  CollectionModel.find()
+  UserModel.find();
+  CollectionModel.find();
   CardModel.findById(req.params.id)
     .then((result) => res.render("dashboard/update-card", { card: result }))
     .catch(next);
 });
 
 // UPDATE(POST) a existing card
-router.post("/collection/:id/update-card",uploader.single("image"), (req, res, next) => {
-
+router.post(
+  "/collection/:id/update-card",
+  uploader.single("image"),
+  (req, res, next) => {
     const editedCard = { ...req.body };
-    console.log("REQ BODY", req.body)
+    console.log("REQ BODY", req.body);
     console.log(editedCard);
     if (!req.file) editedCard.image = undefined;
     else editedCard.image = req.file.path;
@@ -157,20 +179,22 @@ router.post("/collection/:id/update-card",uploader.single("image"), (req, res, n
     //   description,
     //   links,
     // };
-  
+
     // if (req.file) editedCard.image = req.file.secure_url;
-  
 
+    CardModel.findByIdAndUpdate(req.params.id, editedCard).then((edit) => {
+      CollectionModel.findByIdAndUpdate(
+        req.params.id,
+        { $push: { cards: edit._id } },
+        { new: true }
+      )
+        .then((collection) => {
+          console.log(collection);
+        })
+        .catch((err) => console.log(err));
 
-    CardModel.findByIdAndUpdate(req.params.id, editedCard)
-    .then((edit) => {
-
-    CollectionModel.findByIdAndUpdate(req.params.id,  {$push: {cards: edit._id}}, {new: true}).then(collection => {
-      console.log(collection)
-    }).catch(err => console.log(err))
-    
-    res.redirect("/dashboard");
-  })
+      res.redirect("/dashboard");
+    });
   }
 );
 
