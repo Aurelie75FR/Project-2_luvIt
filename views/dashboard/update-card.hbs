@@ -7,7 +7,7 @@
     enctype="multipart/form-data"
   >
 
-    <div class="step left shadow ">
+    <div class="step left shadow">
 
       <div class="canceldiv">
         <a href="javascript:history.back()">
@@ -53,22 +53,10 @@
         <label for="links" class="label closer">Links</label>
         {{#each card.links}}
         <div>
-          <input class="input smallerinput space" type="text" id="name" name="links" value="{{this}}"/>
-          <a href="card/delete/{{this._id}}" class="link"><img
-              class="icon petit"
-              src="/images/trash.svg"
-              alt=""
-            /></a>
+          <input class="input smallerinput space" type="text" id="name" name="links" value="{{this}}"/> 
             </div>
         {{/each}}
-        <div>
-        <input class="input smallerinput space" type="text" id="name" name="links" placeholder="New link"/>
-         <a href="card/delete/{{this._id}}" class="link"><img
-              class="icon petit blanco"
-              src="/images/plusviolet.svg"
-              alt=""
-            /></a>
-            </div>
+        
       </div>
 </div>
       <input type="submit" value="Done" class="done button center" />

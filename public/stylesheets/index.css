@@ -15,6 +15,6 @@
 @import url("./card.css");
 @import url("./update-card.css");
 /* ========= CSS USER PAGE ========= */
-
+@import url("./user.css");
 /* ========= CSS SIGNUP & SIGNIN ========= */
 @import url("./sign-in-and-up.css");

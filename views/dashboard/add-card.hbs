@@ -1,26 +1,116 @@
 <body class="body">
-    
 
-<a href="/dashboard">Cancel and come back to dashboard</a>
+  <form
+    method="post"
+    action="/dashboard/{{collectionId}}/add-card"
+    class="form"
+    enctype="multipart/form-data"
+  >
 
-<form method="post" action="/dashboard/{{collectionId}}/add-card" class="form" enctype="multipart/form-data">
-    <h1 class="title">Create a new card</h1>
-    <label for="name" class="label">name</label>
-    <input class="input" type="text" id="name" name="name" placeholder="Name your card">
+    <div class="step left shadow">
 
-    <label for="image" class="label">
-        choose a picture
-        <i class="icon fas fa-cloud-upload-alt fa-1x"></i>
-    </label>
-    <input class="input" type="file" id="image" name="image" accept="image/png, image/jpeg">
+      <div class="canceldiv">
+        <a href="javascript:history.back()">
+          <img src="/images/close.svg" alt="close" />
+        </a>
+      </div>
 
-    <label for="description" class="label">description</label>
-    <textarea type="text" class="input" id="description" name="description" placeholder="What is your card about ?"></textarea>
+      <p class="title center">Create your card </p>
 
-    <label for="links">Enter your links here :</label>
-    <input type="url" name="links" id="links" placeholder="https://example.com" pattern="https://.*" size="30">
+      <div class="double">
+        <div class="leftpart">
+          <label for="name" class="label closer">Name</label>
+          <input
+            class="input smallerinput"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name your card"
+          />
 
-    <button class="btn">create</button>
-</form>
+          <label for="image" class="label closer">
+            Choose a picture
+          </label>
+          <input
+            class="input smallerinput spe"
+            type="file"
+            id="image"
+            name="image"
+            accept="image/png, image/jpeg"
+          />
+
+          <label for="description" class="label closer">description</label>
+          <textarea
+          maxlength="50"
+            type="text"
+            class="input smallerradius field smallerinput"
+            id="description"
+            name="description"
+            placeholder="What is your card about ?"
+          ></textarea>
+        </div>
+
+        <div class="rightpart">
+
+          <label for="links" class="label closer">Enter your links here :</label>
+          <input
+            type="url"
+            name="links"
+            id="links"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            size="30"
+            class="input smallerinput space"
+          />
+          <input
+            type="url"
+            name="links"
+            id="links"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            size="30"
+            class="input smallerinput space"
+          />
+          <input
+            type="url"
+            name="links"
+            id="links"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            size="30"
+            class="input smallerinput space"
+          />
+          <input
+            type="url"
+            name="links"
+            id="links"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            size="30"
+            class="input smallerinput space"
+          />
+          <input
+            type="url"
+            name="links"
+            id="links"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            size="30"
+            class="input smallerinput space"
+          />
+          <input
+            type="url"
+            name="links"
+            id="links"
+            placeholder="https://example.com"
+            pattern="https://.*"
+            size="30"
+            class="input smallerinput space"
+          />
+        </div>
+      </div>
+      <input type="submit" value="Create" class="done button center" />
+    </div>
+  </form>
 
 </body>
