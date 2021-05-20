@@ -28,15 +28,16 @@
 
 <div class="purpleborder parent">
 
-  <a href="dashboard/collection/{{this._id}}">
   <img class="imgdecalage" src="{{this.image}}" alt=""/></a>
   <p class="purplefat">{{this.name}}</p>
   <p class="whitetext goleft">{{this.description}}</p>
   
-  {{#each this.links}}
+{{#each this.links}}
+{{#if this}}
   <div class="lien">
   <a target="_blank" href="{{this}}">{{this}}</a> 
-</div>
+  </div>
+{{/if}}
 {{/each }}
 
 </div>
