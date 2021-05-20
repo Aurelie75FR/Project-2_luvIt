@@ -16,15 +16,14 @@
 
           <label for="firstName"></label>
           <input
-            class="inputone cursor dablack"
+            class="inputone cursor"
             type="text"
             name="firstName"
-            value="
-            {{actualUser.firstName}}"
+            value="{{actualUser.firstName}}"
           />
           <label for="lastName"></label>
           <input
-            class="inputone cursor dablack"
+            class="inputone cursor"
             type="text"
             name="lastName"
             value="{{actualUser.lastName}}"
@@ -42,12 +41,11 @@
             type="password"
             id="password"
             name="password"
-            placeholder="imtheboss"
+            value="{{actualUser.password}}"
           />
           <button class="button purple">Update</button>
         </form>
-
+<a class="button purple" href="">Log out</a>
       </div>
-
-
+      
 </body>
