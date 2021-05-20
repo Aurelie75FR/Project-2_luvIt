@@ -1,0 +1,25 @@
+.double{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.leftpart{
+    display: flex;
+    flex-flow: column wrap;
+    margin-right: 60px;
+
+}
+
+.rightpart{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.petit{
+ width: 15px;
+}
+
+.space{
+    margin-bottom: 15px;
+}
+

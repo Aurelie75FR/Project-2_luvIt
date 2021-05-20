@@ -10,7 +10,7 @@
   
 
   {{#each collection.cards}}
-   <div class="collectioncard">
+   <div class="collectioncard smaller">
 
        <div class="suppmodif">
           <a href="/collection/update-card/{{this._id}}" class="link"><img
@@ -30,19 +30,20 @@
   <a href="dashboard/collection/{{this._id}}">
   <img class="imgdecalage" src="{{this.image}}" alt=""/></a>
   <p class="purplefat">{{this.name}}</p>
-  <p class="whitetext">{{this.description}}</p>
+  <p class="whitetext goleft">{{this.description}}</p>
   
-  <div>
-  <a class="lien" href="{{this.links}}">{{this.links}}</a>
-  
+  {{#each this.links}}
+  <div class="lien">
+  <a target="_blank" href="{{this}}">{{this}}</a> 
 </div>
+{{/each }}
 
 </div>
       
     </div>
 {{/each}}
 
-<div class="collectioncard">
+<div class="collectioncard ">
 
 <div class="suppmodif transp">
           <a href="collection/update-collection/{{this._id}}" class="link"><img
@@ -57,9 +58,10 @@
             /></a>
         </div>
 
-    <div class="purpleborder parent collectioncard">
-      <div class="imgdecale violet">
+    <div class="likethis">
+      <div class="imgdecalage violet">
         <a href="/dashboard/collection/{{collection.id}}/add-card"><img  src="/images/plus.svg" alt=""/></a>
+        {{!-- /dashboard/add-card/:id  --}}
         </div>
     </div>
 

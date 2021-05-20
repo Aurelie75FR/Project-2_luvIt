@@ -1,32 +1,78 @@
 <body class="body">
 
-<form method="post" action="/collection/update-card/{{card._id}}" class="form" enctype="multipart/form-data">
+  <form
+    method="post"
+    action="/collection/update-card/{{card._id}}"
+    class="form"
+    enctype="multipart/form-data"
+  >
 
-<div class="step left shadow "> 
+    <div class="step left shadow ">
 
-<div class="canceldiv">
-  <a href="javascript:history.back()"> <img src="/images/close.svg" alt="close"> </a>
+      <div class="canceldiv">
+        <a href="javascript:history.back()">
+          <img src="/images/close.svg" alt="close" />
+        </a>
+      </div>
+
+      <p class="title center">Modify your card </p>
+
+<div class="double">
+      <div class="leftpart">
+        <label for="name" class="label closer">Name</label>
+        <input
+          class="input smallerinput"
+          type="text"
+          id="name"
+          name="name"
+          value="{{card.name}}"
+        />
+
+        <label for="image" class="label closer">
+          Choose a picture
+        </label>
+        <input
+          class="input smallerinput spe"
+          type="file"
+          id="image"
+          name="image"
+          accept="image/png, image/jpeg"
+        />
+
+        <label for="description" class="label closer">Description</label>
+        <textarea
+          maxlength="50"
+          type="text"
+          class="input smallerradius field smallerinput"
+          id="description"
+          name="description"
+        >{{card.description}}</textarea>
+      </div>
+
+      <div class="rightpart">
+        <label for="links" class="label closer">Links</label>
+        {{#each card.links}}
+        <div>
+          <input class="input smallerinput space" type="text" id="name" name="name" value="{{this}}"/>
+          <a href="card/delete/{{this._id}}" class="link"><img
+              class="icon petit"
+              src="/images/trash.svg"
+              alt=""
+            /></a>
+            </div>
+        {{/each}}
+        <div>
+        <input class="input smallerinput space" type="text" id="name" name="name" placeholder="New link"/>
+         <a href="card/delete/{{this._id}}" class="link"><img
+              class="icon petit blanco"
+              src="/images/plusviolet.svg"
+              alt=""
+            /></a>
+            </div>
+      </div>
 </div>
-
-    <p class="title center">Modify your card </p>
-
-    <label for="name" class="label closer">Name</label>
-    <input class="input smallerinput" type="text" id="name" name="name" value="{{card.name}}">
-
-    <label for="image" class="label closer">
-        Choose a picture
-    </label>
-    <input class="input smallerinput spe" type="file" id="image" name="image" accept="image/png, image/jpeg">
-
-    <label for="description" class="label closer">Description</label>
-    <textarea maxlength="50" type="text" class="input smallerradius field smallerinput" id="description" name="description">{{card.description}}</textarea>
-
-<label for="links" class="label closer">Links</label>
-    <input class="input smallerinput" type="text" id="name" name="name" value="{{card.links}}">
-
-    <input type="submit" value="Done" class="done button center">
+      <input type="submit" value="Done" class="done button center" />
     </div>
-</form>
-
+  </form>
 
 </body>
