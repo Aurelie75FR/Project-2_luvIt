@@ -16,7 +16,7 @@ const dashboardRouter = require("./routes/dashboard.routes");
 const authRouter = require("./routes/auth.routes");
 const MongoStore = require("connect-mongo")
 const app = express();
-const dev_mode= true;
+const dev_mode= false;
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -55,7 +55,7 @@ app.use(require("./middlewares/exposeFlashMessage")); // affiche les messages da
 
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/", usersRouter);
 app.use("/", dashboardRouter);
 app.use("/", authRouter);
 
