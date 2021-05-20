@@ -27,9 +27,7 @@ router.get("/dashboard/add-collection", (req, res, next) => {
 
 // CREATE (POST) a new collection
 router.post(
-  "/dashboard/add-collection",
-  uploader.single("image"),
-  (req, res, next) => {
+  "/dashboard/add-collection", uploader.single("image"), (req, res, next) => {
     const newCollection = { ...req.body };
     if (!req.file) newCollection.image = undefined;
     else newCollection.image = req.file.path;
