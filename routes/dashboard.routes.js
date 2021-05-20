@@ -28,16 +28,25 @@ router.get("/dashboard/add-collection", (req, res, next) => {
 // CREATE (POST) a new collection
 router.post(
   "/dashboard/add-collection", uploader.single("image"), (req, res, next) => {
-    const newCollection = { ...req.body };
+    const newCollection = { ...req.body};
+    const actualUser = req.session.currentUser;
     if (!req.file) newCollection.image = undefined;
     else newCollection.image = req.file.path;
-    newCollection.user_id = req.session.currentUser.id;
+    
+    console.log(newCollection);
 
     CollectionModel.create(newCollection)
-      .then(() => res.redirect("/dashboard"))
+      .then((createdCollection) => {
+        console.log("req params id = ",req.params.id)
+        CollectionModel.findByIdAndUpdate(createdCollection, {user_id: actualUser}, {new: true}) //we link a user to the new collection
+        .then(collection => {
+          console.log(collection)
+        }).catch(err => console.log(err))
+
+        res.redirect("/dashboard")
+      })
       .catch(next);
-  }
-);
+    });
 
 // UPDATE (GET) a existing collection
 

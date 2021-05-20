@@ -31,7 +31,10 @@
 
 .join.flip {
   transform: rotateY(180deg);
-  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

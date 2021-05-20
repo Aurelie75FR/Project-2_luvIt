@@ -53,7 +53,7 @@ router.post("/auth/signup", async (req, res, next) => {
         newUser.password = hashedPassword;
         await User.create(newUser);
         req.flash("success", "Congrats! You can log in");
-        res.redirect("/auth/signin");
+        res.redirect("/dashboard");
       }
     } catch (err) {
       var errorMsg = "";
